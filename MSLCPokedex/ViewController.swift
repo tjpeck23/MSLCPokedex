@@ -11,6 +11,11 @@ class ViewController: UIViewController {
 
     let pokeApi = PokeApi()
     
+    //create timer
+    var timer: Timer?
+    
+
+    
     @IBOutlet weak var welcomeLabel: UILabel!
     
     override func viewDidLoad() {
@@ -18,7 +23,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         
-        
+        //start the timer so it gets the stuff from the API
+        startTimer()
+    }
+    
+    func startTimer() {
+            timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(getPokemonData), userInfo: nil, repeats: true)
+        }
+    
+    @objc func getPokemonData(){
         // Loads the API data asynchronously
         Task {
             do {
@@ -34,6 +47,12 @@ class ViewController: UIViewController {
         for pokemonEntry in pokemon.results {
             print("Pokemon Name: \(pokemonEntry.name), URL: \(pokemonEntry.url)")
         }
+    }
+    
+    
+    //stop timer when view isnt being used
+    deinit{
+        timer?.invalidate()
     }
     
     @IBAction func Button1(_ sender: Any) {
