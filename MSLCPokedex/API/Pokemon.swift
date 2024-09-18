@@ -8,30 +8,48 @@
 
 import Foundation
 
+
+class PokeApi {
+    var pokemon: Pokemon?
+    
+    func getData() async throws -> Pokemon {
+        
+        let endpoint = "https://pokeapi.co/api/v2/pokemon?limit=151"
+        
+        guard let url = URL(string: endpoint) else {
+            throw APIError.invalidURL
+        }
+        
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw APIError.invalidResponse
+        }
+        
+        do {
+            let decoder = JSONDecoder()
+            
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            return try decoder.decode(Pokemon.self, from: data)
+        } catch {
+            throw APIError.invalidData
+        }
+    }
+}
+
+enum APIError: Error {
+    case invalidURL
+    case invalidResponse
+    case invalidData
+    
+}
+
 struct Pokemon : Codable {
     var results: [PokemonEntry]
 }
 
-struct PokemonEntry: Codable, Identifiable {
-    let id = UUID()
+struct PokemonEntry: Codable{
     var name: String
     var url: String
-}
-
-class PokeApi {
-    func getData(completion: @escaping ([PokemonEntry]) -> ()) {
-        guard let url = URL("https://pokeapi.co/api/v2/pokemon?limit=151") else {
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error)  in
-            guard let data = data else { return }
-            
-            let pokemonList = try! JSONDecoder().decode(Pokemon.self, from: data)
-            
-            DispatchQueue.main.async {
-                completion(pokemonList.results)
-            }
-        }.resume()
-    }
 }
