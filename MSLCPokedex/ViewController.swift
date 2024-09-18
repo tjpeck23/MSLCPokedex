@@ -11,10 +11,15 @@ class ViewController: UIViewController {
 
     let pokeApi = PokeApi()
     
+    @IBOutlet weak var welcomeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        
+        
+        // Loads the API data asynchronously
         Task {
             do {
                 let pokemon = try await pokeApi.getData()
@@ -23,7 +28,6 @@ class ViewController: UIViewController {
                 print("Failed to fetch Pokemon")
             }
         }
-        
     }
     
     func printPokemon(_ pokemon: Pokemon) {
@@ -31,6 +35,10 @@ class ViewController: UIViewController {
             print("Pokemon Name: \(pokemonEntry.name), URL: \(pokemonEntry.url)")
         }
     }
-
+    
+    @IBAction func Button1(_ sender: Any) {
+        
+    }
+    
 }
 
