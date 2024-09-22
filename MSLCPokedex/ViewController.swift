@@ -87,6 +87,7 @@ class ViewController: UIViewController {
                     updateImageView(pokemanSprite2, with: spriteUrl2)
                 }
             }
+        }
     
     func updateImageView(_ imageView: UIImageView, with urlString: String) {
             guard let url = URL(string: urlString) else { return }
