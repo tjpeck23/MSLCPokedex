@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
 
     let pokeApi = PokeApi()
@@ -14,14 +16,17 @@ class ViewController: UIViewController {
     var pokemonIdDict: NSMutableDictionary = [:]
     var pokemonSpriteDict: NSMutableDictionary = [:]
     
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var viewAllLabel: UIButton!
+    @IBOutlet weak var pokemanSprite1: UIImageView!
+    @IBOutlet weak var pokemanSprite2: UIImageView!
+    @IBOutlet weak var selectTeamLabel: UILabel!
+    
     //create timer
     var timer: Timer?
 
-    
-    @IBOutlet weak var welcomeLabel: UILabel!
-    @IBOutlet weak var selectTeamLabel: UILabel!
-    @IBOutlet weak var pokemanSprite1: UIImageView!
-    @IBOutlet weak var pokemanSprite2: UIImageView!
+
     
     
 
