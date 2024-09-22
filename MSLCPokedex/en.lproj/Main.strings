@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Welcome to the Pokedex!"; ObjectID = "QhZ-iC-upn"; */
+"QhZ-iC-upn.text" = "Welcome to the Pokedex!";
+
+/* Class = "UIButton"; configuration.title = "View All Pokemon"; ObjectID = "RA2-Qb-8i4"; */
+"RA2-Qb-8i4.configuration.title" = "View All Pokemon";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "RA2-Qb-8i4"; */
+"RA2-Qb-8i4.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Select Your Team!"; ObjectID = "uwr-qx-fJJ"; */
+"uwr-qx-fJJ.text" = "Select Your Team!";
