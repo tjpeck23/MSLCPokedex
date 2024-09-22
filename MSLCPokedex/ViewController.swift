@@ -10,14 +10,26 @@ import UIKit
 class ViewController: UIViewController {
 
     let pokeApi = PokeApi()
+    var pokemonUrlDict: NSMutableDictionary = [:]
+    var pokemonIdDict: NSMutableDictionary = [:]
+    var pokemonSpriteDict: NSMutableDictionary = [:]
     
     //create timer
     var timer: Timer?
     
 
     
-    @IBOutlet weak var welcomeLabel: UILabel!
+
     
+
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var selectTeamLabel: UILabel!
+    @IBOutlet weak var pokemanSprite1: UIImageView!
+    @IBOutlet weak var pokemanSprite2: UIImageView!
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -36,13 +48,43 @@ class ViewController: UIViewController {
         Task {
             do {
                 let pokemon = try await pokeApi.getData()
-                printPokemon(pokemon)
+                // Add the info into my Dictionaries for later use.
+                pokemonUrlDict = pokeApi.createPokemonUrlDict(pokemon: pokemon)
+                pokemonIdDict = pokeApi.createPokemonIdDict(pokemon: pokemon)
+                pokemonSpriteDict = pokeApi.createPokemonSpriteDict(pokemon: pokemon)
+                //call the func that updates the images every 2 seconds.
+                updateSprites()
             } catch {
                 print("Failed to fetch Pokemon")
             }
         }
     }
     
+    
+    func updateSprites() {
+                // Update the UIImageViews with the sprites
+                updateImageView(pokemanSprite1, with: spriteUrl1)
+                updateImageView(pokemanSprite2, with: spriteUrl2)
+            }
+        }
+    
+    func updateImageView(_ imageView: UIImageView, with urlString: String) {
+            guard let url = URL(string: urlString) else { return }
+            
+            // Fetch the image data asynchronously
+            Task {
+                do {
+                    let (data, _) = try await URLSession.shared.data(from: url)
+                    if let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            imageView.image = image
+                        }
+                    }
+                } catch {
+                    print("Failed to load image: \(error)")
+                }
+            }
+        }
     func printPokemon(_ pokemon: Pokemon) {
         for pokemonEntry in pokemon.results {
             print("Pokemon Name: \(pokemonEntry.name), URL: \(pokemonEntry.url)")
