@@ -60,8 +60,10 @@ class PokeApi {
     func createPokemonSpriteDict(pokemon: Pokemon) -> NSMutableDictionary{
         let pokemonDict: NSMutableDictionary = [:]
         var iterator = 1
+        var myString = ""
         for pokemonEntry in pokemon.results {
-            pokemonDict[pokemonEntry.name] = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/1.png"
+            myString = String(iterator)
+            pokemonDict[pokemonEntry.name] = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/" + myString + ".png"
             iterator += 1
         }
         return pokemonDict
