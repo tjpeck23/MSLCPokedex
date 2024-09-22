@@ -17,9 +17,42 @@ class CollectionViewFile : UICollectionViewController{
         }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            // Return the number of items in the collection
-        //use this to show all the pokeman that were an option
-            return 20 // Example: hardcoded number of items
+        // Return the number of items in the collection
+        //use this to get the number of pokemon sprits used
+        return pokemonSprites.count
+        }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
+           
+           // get the sprite
+           let keys = pokemonSprites.allKeys
+           if let spriteUrl = pokemonSprites[keys[indexPath.item]] as? String {
+               // show the sprite
+               if let imageView = cell.viewWithTag(100) as? UIImageView {
+                   //get the image from the URL
+                   updateImageView(imageView, with: spriteUrl)
+               }
+           }
+           
+           return cell
+       }
+    func updateImageView(_ imageView: UIImageView, with urlString: String) {
+            guard let url = URL(string: urlString) else { return }
+
+            //get the image data
+            Task {
+                do {
+                    let (data, _) = try await URLSession.shared.data(from: url)
+                    if let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            imageView.image = image
+                        }
+                    }
+                } catch {
+                    print("Failed to load image: \(error)")
+                }
+            }
         }
     
     
