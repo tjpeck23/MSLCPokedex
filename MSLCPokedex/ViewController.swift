@@ -10,7 +10,9 @@ import UIKit
 class ViewController: UIViewController {
 
     let pokeApi = PokeApi()
-    
+    var pokemonUrlDict: NSMutableDictionary = [:]
+    var pokemonIdDict: NSMutableDictionary = [:]
+    var pokemonSpriteDict: NSMutableDictionary = [:]
     //create timer
     var timer: Timer?
     
@@ -36,6 +38,10 @@ class ViewController: UIViewController {
         Task {
             do {
                 let pokemon = try await pokeApi.getData()
+                // Add the info into my Dictionaries for later use.
+                pokemonUrlDict = pokeApi.createPokemonUrlDict(pokemon: pokemon)
+                pokemonIdDict = pokeApi.createPokemonIdDict(pokemon: pokemon)
+                pokemonSpriteDict = pokeApi.createPokemonSpriteDict(pokemon: pokemon)
                 printPokemon(pokemon)
             } catch {
                 print("Failed to fetch Pokemon")
