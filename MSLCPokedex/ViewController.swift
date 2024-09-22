@@ -10,7 +10,7 @@ import UIKit
 
 
 class ViewController: UIViewController {
-
+    
     let pokeApi = PokeApi()
     var pokemonUrlDict: NSMutableDictionary = [:]
     var pokemonIdDict: NSMutableDictionary = [:]
@@ -25,11 +25,11 @@ class ViewController: UIViewController {
     
     //create timer
     var timer: Timer?
-
-
     
     
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -47,8 +47,8 @@ class ViewController: UIViewController {
     }
     
     func startTimer() {
-            timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(getPokemonData), userInfo: nil, repeats: true)
-        }
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(getPokemonData), userInfo: nil, repeats: true)
+    }
     
     @objc func getPokemonData(){
         // Loads the API data asynchronously
@@ -70,59 +70,69 @@ class ViewController: UIViewController {
     
     func updateSprites() {
         
-                //get the keys from the dict
-                let keys = pokemonSpriteDict.allKeys
+        //get the keys from the dict
+        let keys = pokemonSpriteDict.allKeys
         
         
-                // Ensure there are at least two Pokémon to choose from
-                guard keys.count >= 2 else { return }
-                
-                // Select two different random keys
-                var randomKeys: [Any] = []
-                while randomKeys.count < 2 {
-                    let randomKey = keys.randomElement()!
-                    if !randomKeys.contains(where: { $0 as? String == randomKey as? String }) {
-                        randomKeys.append(randomKey)
-                    }
-                }
-                
-                // Fetch the sprite URLs using the random keys
-            if let spriteUrl1 = pokemonSpriteDict[randomKeys[0]] as? String,
-               let spriteUrl2 = pokemonSpriteDict[randomKeys[1]] as? String {
-                    // Update the UIImageViews with the sprites
-                    updateImageView(pokemanSprite1, with: spriteUrl1)
-                    updateImageView(pokemanSprite2, with: spriteUrl2)
-                }
+        // Ensure there are at least two Pokémon to choose from
+        guard keys.count >= 2 else { return }
+        
+        // Select two different random keys
+        var randomKeys: [Any] = []
+        while randomKeys.count < 2 {
+            let randomKey = keys.randomElement()!
+            if !randomKeys.contains(where: { $0 as? String == randomKey as? String }) {
+                randomKeys.append(randomKey)
             }
         }
+        
+        // Fetch the sprite URLs using the random keys
+        if let spriteUrl1 = pokemonSpriteDict[randomKeys[0]] as? String,
+           let spriteUrl2 = pokemonSpriteDict[randomKeys[1]] as? String {
+            // Update the UIImageViews with the sprites
+            updateImageView(pokemanSprite1, with: spriteUrl1)
+            updateImageView(pokemanSprite2, with: spriteUrl2)
+        }
+    }
+    
     
     func updateImageView(_ imageView: UIImageView, with urlString: String) {
-            guard let url = URL(string: urlString) else { return }
-            
-            // Fetch the image data asynchronously
-            Task {
-                do {
-                    let (data, _) = try await URLSession.shared.data(from: url)
-                    if let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            imageView.image = image
-                        }
+        guard let url = URL(string: urlString) else { return }
+        
+        // Fetch the image data asynchronously
+        Task {
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        imageView.image = image
                     }
-                } catch {
-                    print("Failed to load image: \(error)")
                 }
+            } catch {
+                print("Failed to load image: \(error)")
             }
         }
+    }
     
-
+    
     func printPokemon(_ pokemon: Pokemon) {
         for pokemonEntry in pokemon.results {
             print("Pokemon Name: \(pokemonEntry.name), URL: \(pokemonEntry.url)")
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){ //looked this up on stackoverflow to get the APIs to collectionview!
+        if segue.identifier == "goToCollection" {
+                if let destinationVC = segue.destination as? CollectionViewFile {
+                    // Pass the pokemonSpriteDict to CollectionViewController
+                    destinationVC.pokemonSprites = pokemonSpriteDict
+                }
+            }
+    
+    }
     
     //stop timer when view isnt being used
     
-
-
+    
+    
+}
