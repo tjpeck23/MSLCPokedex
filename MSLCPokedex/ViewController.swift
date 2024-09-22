@@ -16,11 +16,6 @@ class ViewController: UIViewController {
     
     //create timer
     var timer: Timer?
-    
-
-    
-
-    
 
     
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -87,6 +82,7 @@ class ViewController: UIViewController {
                     updateImageView(pokemanSprite2, with: spriteUrl2)
                 }
             }
+        }
     
     func updateImageView(_ imageView: UIImageView, with urlString: String) {
             guard let url = URL(string: urlString) else { return }
@@ -113,13 +109,9 @@ class ViewController: UIViewController {
     
     
     //stop timer when view isnt being used
-    deinit{
-        timer?.invalidate()
-    }
     
-    @IBAction func Button1(_ sender: Any) {
-        
-    }
     
-}
+    
+    
+
 
