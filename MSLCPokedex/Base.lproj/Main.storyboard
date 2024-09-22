@@ -33,7 +33,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RA2-Qb-8i4">
                                 <rect key="frame" x="116" y="605.66666666666663" width="160" height="33.333333333333371"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="View All Pokemon"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="View Pokeman Team"/>
                                 <connections>
                                     <action selector="Button1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BZg-Qw-QZf"/>
                                     <segue destination="7dX-jd-0yI" kind="show" id="k5K-bh-4k3"/>
