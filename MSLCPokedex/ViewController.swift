@@ -40,12 +40,14 @@ class ViewController: UIViewController {
     }
     
     //button moves to collection view of all pokeman in our API (use the collection view for scroll requriment as well
+    
+    
     @IBAction func buttonPressed(_ sender: Any) {
         performSegue(withIdentifier: "goToCollection", sender: self)
     }
     
     func startTimer() {
-            timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(getPokemonData), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(getPokemonData), userInfo: nil, repeats: true)
         }
     
     @objc func getPokemonData(){
@@ -85,8 +87,8 @@ class ViewController: UIViewController {
                 }
                 
                 // Fetch the sprite URLs using the random keys
-                if let spriteUrl1 = pokemonSpriteDict[randomKeys[0]] as? String,
-                   let spriteUrl2 = pokemonSpriteDict[randomKeys[1]] as? String {
+            if let spriteUrl1 = pokemonSpriteDict[randomKeys[0]] as? String,
+               let spriteUrl2 = pokemonSpriteDict[randomKeys[1]] as? String {
                     // Update the UIImageViews with the sprites
                     updateImageView(pokemanSprite1, with: spriteUrl1)
                     updateImageView(pokemanSprite2, with: spriteUrl2)
