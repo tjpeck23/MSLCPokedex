@@ -59,7 +59,7 @@ class ViewController: UIViewController {
                 pokemonUrlDict = pokeApi.createPokemonUrlDict(pokemon: pokemon)
                 pokemonIdDict = pokeApi.createPokemonIdDict(pokemon: pokemon)
                 pokemonSpriteDict = pokeApi.createPokemonSpriteDict(pokemon: pokemon)
-                //call the func that updates the images every 2 seconds.
+                //call the func that updates the images every 3 seconds.
                 updateSprites()
             } catch {
                 print("Failed to fetch Pokemon")
