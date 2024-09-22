@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var welcomeLabel: UILabel!
-    @IBOutlet weak var viewAllLabel: UIButton!
+    @IBOutlet weak var viewAllButton: UIButton!
     @IBOutlet weak var pokemanSprite1: UIImageView!
     @IBOutlet weak var pokemanSprite2: UIImageView!
     @IBOutlet weak var selectTeamLabel: UILabel!
@@ -37,6 +37,11 @@ class ViewController: UIViewController {
         
         //start the timer so it gets the stuff from the API
         startTimer()
+    }
+    
+    //button moves to collection view of all pokeman in our API (use the collection view for scroll requriment as well
+    @IBAction func buttonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToCollection", sender: self)
     }
     
     func startTimer() {
@@ -106,6 +111,8 @@ class ViewController: UIViewController {
                 }
             }
         }
+    
+
     func printPokemon(_ pokemon: Pokemon) {
         for pokemonEntry in pokemon.results {
             print("Pokemon Name: \(pokemonEntry.name), URL: \(pokemonEntry.url)")
@@ -114,9 +121,6 @@ class ViewController: UIViewController {
     
     
     //stop timer when view isnt being used
-    
-    
-    
     
 
 
