@@ -36,6 +36,36 @@ class PokeApi {
             throw APIError.invalidData
         }
     }
+    
+    //The following functions are to create dictionaries in order to easily grab the info we want. Also, Structs can not be accessed by Objective-c.
+    
+    func createPokemonUrlDict(pokemon: Pokemon) -> NSMutableDictionary{
+        let pokemonDict: NSMutableDictionary = [:]
+        for pokemonEntry in pokemon.results {
+            pokemonDict[pokemonEntry.name] = pokemonEntry.url
+        }
+        return pokemonDict
+    }
+    
+    func createPokemonIdDict(pokemon: Pokemon) -> NSMutableDictionary{
+        let pokemonDict: NSMutableDictionary = [:]
+        var iterator = 1
+        for pokemonEntry in pokemon.results {
+            pokemonDict[pokemonEntry.name] = iterator
+            iterator += 1
+        }
+        return pokemonDict
+    }
+    
+    func createPokemonSpriteDict(pokemon: Pokemon) -> NSMutableDictionary{
+        let pokemonDict: NSMutableDictionary = [:]
+        var iterator = 1
+        for pokemonEntry in pokemon.results {
+            pokemonDict[pokemonEntry.name] = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/transparent/1.png"
+            iterator += 1
+        }
+        return pokemonDict
+    }
 }
 
 enum APIError: Error {
