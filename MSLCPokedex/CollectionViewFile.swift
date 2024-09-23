@@ -14,6 +14,11 @@ class CollectionViewFile : UICollectionViewController{
     
     override func viewDidLoad() {
             super.viewDidLoad()
+            //debugging because it aint working 
+            print("Number of sprites: \(pokemonSprites.count)")
+                
+            collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
+       
         }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

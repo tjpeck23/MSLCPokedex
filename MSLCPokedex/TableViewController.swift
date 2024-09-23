@@ -17,7 +17,10 @@ class TableViewController: UITableViewController{
     //this goes in every class
     override func viewDidLoad() {
             super.viewDidLoad()
-            
+        
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "nameCell")
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "spriteCell")
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "infoCell")
         }
     
     // MARK: - Table view data source
