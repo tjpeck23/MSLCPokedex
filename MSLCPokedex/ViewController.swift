@@ -131,10 +131,16 @@ class ViewController: UIViewController {
         //sends info to Collection View
         if segue.identifier == "goToCollection" {
                 if let destinationVC = segue.destination as? CollectionViewFile {
-                    // Pass the pokemonSpriteDict to CollectionViewController
-                    destinationVC.pokemonSprites = pokemonSpriteDict
+                    // Check if pokemonSpriteDict has data before passing it
+                    if pokemonSpriteDict.count > 0 {
+                        print("Sending data: \(pokemonSpriteDict.count) items")
+                        destinationVC.pokemonSprites = pokemonSpriteDict
+                    } else {
+                        print("No data in pokemonSpriteDict")
+                    }
                 }
             }
+        
         
         //sends info to TableView
         if segue.identifier == "goToTableView" {
