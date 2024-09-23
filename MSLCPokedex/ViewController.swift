@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "goToCollection", sender: self)
     }
     
-    
+    //this button moves to table view which shows the information about all the pokemon
     @IBAction func buttonPressed2(_ sender: Any) {
         performSegue(withIdentifier: "goToTableView", sender: self)
     }
@@ -128,17 +128,27 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){ //looked this up on stackoverflow to get the APIs to collectionview!
+        //sends info to Collection View
         if segue.identifier == "goToCollection" {
                 if let destinationVC = segue.destination as? CollectionViewFile {
                     // Pass the pokemonSpriteDict to CollectionViewController
                     destinationVC.pokemonSprites = pokemonSpriteDict
                 }
             }
-    
-    }
-    
-    //stop timer when view isnt being used
-    
+        
+        //sends info to TableView
+        if segue.identifier == "goToTableView" {
+            if let destinationVC = segue.destination as? TableViewController {
+                            if let pokemonNames = pokemonUrlDict.allKeys as? [String] {
+                                for name in pokemonNames {
+                                    let spriteUrl = pokemonSpriteDict[name] as? String ?? ""
+                                    let id = pokemonIdDict[name] as? Int ?? 0
+                                    destinationVC.pokemonData.append((pokeName: name, pokeImage: spriteUrl, pokeID: id))
+                                }
+                            }
+                        }
+                    }
+                }
     
     
 }

@@ -29,15 +29,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RA2-Qb-8i4">
-                                <rect key="frame" x="106" y="443.33333333333331" width="181" height="34.333333333333314"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="View Pokeman Team"/>
-                                <connections>
-                                    <action selector="Button1:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BZg-Qw-QZf"/>
-                                    <segue destination="7dX-jd-0yI" kind="show" id="rjY-0N-VP0"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQk-6R-aGw">
                                 <rect key="frame" x="104" y="370" width="186" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -47,18 +38,24 @@
                                     <segue destination="uxH-eh-FML" kind="show" identifier="goToTableView" destinationCreationSelector="buttonPressed2" id="0QZ-Vy-7yZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NrP-12-Lsc">
+                                <rect key="frame" x="121" y="444" width="137" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="View Pokemon"/>
+                                <connections>
+                                    <segue destination="7dX-jd-0yI" kind="show" identifier="goToCollection" destinationCreationSelector="buttonPressed" id="4QX-7j-mml"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VDG-Jp-PDn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1DL-BT-afs"/>
                             <constraint firstItem="PrJ-zS-mwo" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3Y1-zq-joJ"/>
-                            <constraint firstItem="RA2-Qb-8i4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="DLu-lr-Xzp"/>
                             <constraint firstItem="QhZ-iC-upn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="MKP-yL-vwq"/>
-                            <constraint firstItem="PrJ-zS-mwo" firstAttribute="top" secondItem="RA2-Qb-8i4" secondAttribute="bottom" constant="100" id="XH1-Bv-h6X"/>
                             <constraint firstItem="VDG-Jp-PDn" firstAttribute="top" secondItem="QhZ-iC-upn" secondAttribute="bottom" constant="100" id="oBu-ja-Xex"/>
                             <constraint firstItem="QhZ-iC-upn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tQ1-MU-FRW"/>
-                            <constraint firstItem="RA2-Qb-8i4" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="zIq-VW-PpP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qyl-C4-dqY"/>
