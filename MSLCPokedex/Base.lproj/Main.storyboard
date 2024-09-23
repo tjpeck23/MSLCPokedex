@@ -44,7 +44,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Pokemon Information"/>
                                 <connections>
-                                    <segue destination="uxH-eh-FML" kind="show" identifier="goToTableView" id="0QZ-Vy-7yZ"/>
+                                    <segue destination="uxH-eh-FML" kind="show" identifier="goToTableView" destinationCreationSelector="buttonPressed2" id="0QZ-Vy-7yZ"/>
                                 </connections>
                             </button>
                         </subviews>

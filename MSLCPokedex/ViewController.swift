@@ -46,6 +46,12 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "goToCollection", sender: self)
     }
     
+    
+    @IBAction func buttonPressed2(_ sender: Any) {
+        performSegue(withIdentifier: "goToTableView", sender: self)
+    }
+    
+    
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(getPokemonData), userInfo: nil, repeats: true)
     }
