@@ -40,6 +40,7 @@ class CollectionViewFile : UICollectionViewController{
         if let spriteUrl = pokemonSprites[keys[indexPath.item]] as? String {
             
             // Check if the imageView exists in the cell, otherwise create it
+            //this came from internet because I cried for a few hours when it wouldn't work because we had so many pokemon
             var imageView = cell.viewWithTag(100) as? UIImageView
             if imageView == nil {
                 // Create an image view and add it to the cell's content view

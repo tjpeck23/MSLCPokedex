@@ -23,8 +23,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PrJ-zS-mwo">
                                 <rect key="frame" x="76" y="583" width="240" height="172"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to Pokedex! Select Your Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhZ-iC-upn">
-                                <rect key="frame" x="22" y="109" width="335" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Pokedex! Select Your Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhZ-iC-upn">
+                                <rect key="frame" x="46" y="153" width="301" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -38,9 +38,8 @@
                                     <segue destination="uxH-eh-FML" kind="show" identifier="goToTableView" destinationCreationSelector="buttonPressed2" id="0QZ-Vy-7yZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NrP-12-Lsc">
-                                <rect key="frame" x="121" y="444" width="137" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NrP-12-Lsc">
+                                <rect key="frame" x="128" y="443" width="137" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="View Pokemon"/>
                                 <connections>
@@ -53,8 +52,11 @@
                         <constraints>
                             <constraint firstItem="VDG-Jp-PDn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1DL-BT-afs"/>
                             <constraint firstItem="PrJ-zS-mwo" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3Y1-zq-joJ"/>
+                            <constraint firstItem="VDG-Jp-PDn" firstAttribute="top" secondItem="QhZ-iC-upn" secondAttribute="bottom" constant="50" id="CJL-Qq-EWj"/>
                             <constraint firstItem="QhZ-iC-upn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="MKP-yL-vwq"/>
-                            <constraint firstItem="VDG-Jp-PDn" firstAttribute="top" secondItem="QhZ-iC-upn" secondAttribute="bottom" constant="100" id="oBu-ja-Xex"/>
+                            <constraint firstItem="NrP-12-Lsc" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="N4K-eT-aXG"/>
+                            <constraint firstItem="PrJ-zS-mwo" firstAttribute="top" secondItem="NrP-12-Lsc" secondAttribute="bottom" constant="50" id="aRe-8W-gzE"/>
+                            <constraint firstItem="NrP-12-Lsc" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="l3n-Iv-D6K"/>
                             <constraint firstItem="QhZ-iC-upn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tQ1-MU-FRW"/>
                         </constraints>
                     </view>

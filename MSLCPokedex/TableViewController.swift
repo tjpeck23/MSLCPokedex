@@ -53,9 +53,8 @@ class TableViewController: UITableViewController{
             case 1:
                 // get and show Image
                 let cell = tableView.dequeueReusableCell(withIdentifier: "spriteCell", for: indexPath)
-                if let imageView = cell.viewWithTag(100) as? UIImageView {
-                    updateImageView(imageView, with: pokemon.pokeImage)
-                }
+                var imageView = cell.viewWithTag(100) as? UIImageView
+                       
                 return cell
                 
             case 2:
