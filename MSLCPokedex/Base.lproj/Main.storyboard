@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="973.28244274809151" y="-2.1126760563380285"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Collection View File-->
         <scene sceneID="c4L-H5-jxk">
             <objects>
-                <collectionViewController id="7dX-jd-0yI" sceneMemberID="viewController">
+                <collectionViewController id="7dX-jd-0yI" customClass="CollectionViewFile" customModule="MSLCPokedex" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="vlQ-Sy-eti">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,7 +113,7 @@
         <!--Table View Controller-->
         <scene sceneID="oC8-7b-QdS">
             <objects>
-                <tableViewController id="uxH-eh-FML" sceneMemberID="viewController">
+                <tableViewController id="uxH-eh-FML" customClass="TableViewController" customModule="MSLCPokedex" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="bQ8-el-XaE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
